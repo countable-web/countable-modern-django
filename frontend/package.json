@@ -1,0 +1,14 @@
+{
+  "name": "countable-modern-django",
+  "version": "1.0.0",
+  "description": "A modern Django backed web app at Countable Web Inc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Clark Van Oyen",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  }
+}
