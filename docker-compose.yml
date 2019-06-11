@@ -8,13 +8,20 @@ services:
       - ./web:/code
     ports:
       - 80:8000
-
+    networks:
+      - back-tier
   db:
     image: postgres:9.5.1
     volumes:
       - pg-data:/var/lib/postgresql/data
+    networks:
+      - back-tier
 
 volumes:
   pg-data:
     driver: local
+
+networks:
+  back-tier:
+    driver: bridge
 
