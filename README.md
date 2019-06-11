@@ -1,6 +1,6 @@
-# countable-modern-django
+# Countable Modern Django
 
-A Modern Template for A Django-backed SPA
+A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres.
 
 ## Installation
 
@@ -35,3 +35,4 @@ You can visit the Django admin at `http://localhost/admin`. The username is `adm
   * Uses Vue-cli, a modern Vue toolkit.
   * Proxies all ports through port 80, the default, including websockets, so there's no need to worry about the port of anything when developing.
 
+:wq ;)
