@@ -6,8 +6,9 @@ services:
     build: ./web
     volumes:
       - ./web:/code
+      - static:/static
     ports:
-      - 80:8000
+      - 8000:8000
     networks:
       - back-tier
   db:
@@ -16,9 +17,32 @@ services:
       - pg-data:/var/lib/postgresql/data
     networks:
       - back-tier
+  
+  frontend:
+    image: node
+    volumes:
+     - ./frontend:/code
+    ports:
+      - 8080:8080
+    networks:
+      - back-tier
+    working_dir: /code/
+    command: ./command.sh
+  
+  nginx:
+    networks:
+      - back-tier
+    ports:
+      - 80:80
+    image: nginx:1.13
+    volumes:
+     - ./nginx/conf.d:/etc/nginx/conf.d
+     - static:/static
 
 volumes:
   pg-data:
+    driver: local
+  static:
     driver: local
 
 networks:
