@@ -20,3 +20,9 @@ And, your Django app is served at `http://localhost/api`
 
 You can visit the Django admin at `http://localhost/admin`
 
+To create a superuser:
+
+```
+docker-compose exec web ./setup.sh
+```
+
