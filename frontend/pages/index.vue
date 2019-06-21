@@ -3,14 +3,14 @@
     <div>
       <logo />
       <h1 class="title">
-        fpcc
+        Countable Modern Django
       </h1>
       <h2 class="subtitle">
-        My peachy Nuxt.js project
+        A modern Dockerized Django project using Nuxt.JS as a front-end.
       </h2>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
+          >Nuxt Documentation</a
         >
         <a
           href="https://github.com/nuxt/nuxt.js"

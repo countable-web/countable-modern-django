@@ -1,7 +1,7 @@
 {
-  "name": "fpcc",
+  "name": "countable-modern-django",
   "version": "1.0.0",
-  "description": "My peachy Nuxt.js project",
+  "description": "A modern Django project using Nuxt.JS as a front-end",
   "author": "Aaron",
   "private": true,
   "scripts": {
