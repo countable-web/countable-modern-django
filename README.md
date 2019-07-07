@@ -1,6 +1,6 @@
 # Countable Modern Django
 
-A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres.
+A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres based on Countable's standards [here](https://github.com/countable-web/open-source-corporation/tree/master/product/engineering)
 
 ## Installation
 
