@@ -36,21 +36,3 @@ You can visit the Django admin at `http://localhost/admin`. The username is `adm
   * Proxies all ports through port 80, the default, including websockets, so there's no need to worry about the port of anything when developing.
 
 :wq ;)
-
-## Front End
-
-  To get started:
-
-        cd frontend
-        yarn run dev
-
-  To build & start for production:
-
-        cd frontend
-        yarn run build
-        yarn start
-
-  To test:
-
-        cd frontend
-        yarn run test
