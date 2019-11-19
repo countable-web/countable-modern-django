@@ -35,4 +35,3 @@ You can visit the Django admin at `http://localhost/admin`. The username is `adm
   * Uses Nuxt.js
   * Proxies all ports through port 80, the default, including websockets, so there's no need to worry about the port of anything when developing.
 
-:wq ;)
