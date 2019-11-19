@@ -1,6 +1,6 @@
 # Countable Modern Django
 
-A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres.
+A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres based on Countable's standards [here](https://github.com/countable-web/open-source-corporation/tree/master/product/engineering)
 
 ## Installation
 
@@ -32,7 +32,25 @@ You can visit the Django admin at `http://localhost/admin`. The username is `adm
   * Fully Dockerized, and configured with docker-compose
   * Uses PostgreSQL
   * API-Driven Django. We don't use Django's templates for anything.
-  * Uses Vue-cli, a modern Vue toolkit.
+  * Uses Nuxt.js
   * Proxies all ports through port 80, the default, including websockets, so there's no need to worry about the port of anything when developing.
 
 :wq ;)
+
+## Front End
+
+  To get started:
+
+        cd frontend
+        yarn run dev
+
+  To build & start for production:
+
+        cd frontend
+        yarn run build
+        yarn start
+
+  To test:
+
+        cd frontend
+        yarn run test

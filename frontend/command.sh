@@ -1,3 +1,4 @@
 #!/bin/bash
+
 yarn
-yarn serve
+yarn run dev
