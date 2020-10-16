@@ -4,5 +4,12 @@ services:
 
   nginx:
     ports:
-      - 80:80
+      - 80000:80
+    restart: always
+  web:
+    restart: always
+  db:
+    restart: always
+  frontend:
+    restart: always
 

@@ -10,7 +10,7 @@ services:
     networks:
       - back-tier
   db:
-    image: postgres:9.5.1
+    image: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
     networks:
@@ -30,7 +30,7 @@ services:
       - back-tier
     ports:
       - 80:80
-    image: nginx:1.13
+    image: nginx
     volumes:
      - ./nginx/conf.d:/etc/nginx/conf.d
      - static:/static
