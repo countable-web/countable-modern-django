@@ -1,3 +1,5 @@
+docker-compose.override.yml
+
 # front-end
 node_modules
 
