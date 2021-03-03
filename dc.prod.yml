@@ -1,17 +1,25 @@
 version: '3.3'
 
 services:
-
+  frontend:
+    command: bash -c "yarn && yarn build"
+    environment:
+     - NODE_ENV=production
+    restart: always
   nginx:
     ports:
       - 80000:80
     restart: always
+    volumes:
+     - ./nginx/prod.conf.d:/etc/nginx/conf.d
+     - static:/static
+     - ./frontend/dist:/dist
   web:
     restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DJANGO_SECRET=${DJANGO_SECRET}
   db:
     restart: always
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  frontend:
-    restart: always
-

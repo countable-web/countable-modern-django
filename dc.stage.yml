@@ -1,9 +1,15 @@
 version: '3.3'
 
 services:
-  db:
-    environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
   nginx:
     ports:
       - 80:80
+    restart: always
+  db:
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  web:
+    restart: always
+  frontend:
+    restart: always

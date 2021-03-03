@@ -1,25 +1,33 @@
 # Countable Modern Django
 
-A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres based on Countable's standards [here](https://github.com/countable-web/open-source-corporation/tree/master/product/engineering)
+A Dockerized boilerplate for a Django API driven web app, with Vue CLI and Postgres based on Countable's standards [here](https://countable-web.github.io/ops/#engineering)
 
-## Installation
+## Build and Deploy
 
-Clone the project.
+Prerequisites:
+- Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/), if you don't have them installed.
 
-Install Docker and docker-compose.
+Clone the repo:
+```
+git clone https://github.com/countable-web/countable-modern-django
+cd countable-modern-django
+```
 
-Spin up the project.
+You will need to create a Docker Compose override file from one of the templates (`dc.dev.yml` or `dc.prod.yml`).  
+(Note: if you are using `dc.prod.yml`, you will need to create the environment variables `POSTGRES_PASSWORD` and `DJANGO_SECRET` and populate them with passwords of your choice. These environment variables are hardcoded for local development in `dc.dev.yml`.)
+```
+cp dc.dev.yml docker-compose.override.yml
+```
 
+Spin up the app using the following command:
 ```
 docker-compose up
 ```
 
-Your Vue app is served at `http://localhost`
+The frontend app runs Vue and is served at `http://localhost`.
+The backend app runs Django and is served at `http://localhost/api`.
 
-And, your Django app is served at `http://localhost/api`
-
-
-To create a superuser:
+To set up a superuser in Django, run the following command:
 
 ```
 docker-compose exec web ./setup.sh
@@ -35,3 +43,26 @@ You can visit the Django admin at `http://localhost/admin`. The username is `adm
   * Uses Nuxt.js
   * Proxies all ports through port 80, the default, including websockets, so there's no need to worry about the port of anything when developing.
 
+## Testing
+
+To run unit tests for the frontend app, run the following command:
+```
+docker-compose exec frontend yarn test:unit
+```
+
+To run unit tests for the backend app, run the following command:
+```
+docker-compose exec web python manage.py test
+```
+
+## Linting
+
+Linting for the backend app is done using pylint. You can run the linter using the following command:
+```
+docker-compose exec web pylint --load-plugins pylint_django web
+```
+
+Linting is done automatically for the frontend app when it builds. You can also manually run the linter using the following command:
+```
+docker-compose exec frontend yarn lint
+```
