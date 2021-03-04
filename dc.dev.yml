@@ -1,8 +1,23 @@
 version: '3.3'
 
 services:
-
+  frontend:
+    command: bash -c "yarn && yarn serve"
+    ports:
+      - 8080:8080
+  db:
+    environment:
+      - POSTGRES_PASSWORD=password
   nginx:
     ports:
       - 80:80
-
+    volumes:
+     - ./nginx/conf.d:/etc/nginx/conf.d
+     - static:/static
+  web:
+    environment:
+      - DEBUG=1
+      - POSTGRES_PASSWORD=password
+      - DJANGO_SECRET=secret
+    ports:
+      - 8000:8000
