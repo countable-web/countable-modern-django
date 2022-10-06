@@ -12,7 +12,7 @@ services:
     ports:
       - 80:80
     volumes:
-     - ./nginx/dev/:/etc/nginx/conf.d
+     - ./nginx/dev:/etc/nginx/conf.d
      - static:/static
   web:
     environment:

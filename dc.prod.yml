@@ -15,7 +15,7 @@ services:
     ports:
       - 80000:80
     volumes:
-     - ./nginx/prod/default.conf:/etc/nginx/conf.d
+     - ./nginx/prod:/etc/nginx/conf.d
      - static:/static
      - ./frontend/dist:/dist
   web:
