@@ -14,7 +14,7 @@ cd countable-modern-django
 ```
 
 You will need to create a Docker Compose override file from one of the templates (`dc.dev.yml` or `dc.prod.yml`).  
-(Note: if you are using `dc.prod.yml`, you will need to create the environment variables `POSTGRES_PASSWORD` and `DJANGO_SECRET` and populate them with passwords of your choice. These environment variables are hardcoded for local development in `dc.dev.yml`.)
+(Note: if you are using `dc.prod.yml`, you will need to create the environment variables `POSTGRES_PASSWORD` and `DJANGO_SECRET` in a .env file and populate them with passwords of your choice. You will also need to modify port 80000 in the nginx config to the correct port that is setup on the hosting machine. These environment variables are hardcoded for local development in `dc.dev.yml`.)
 ```
 cp dc.dev.yml docker-compose.override.yml
 ```

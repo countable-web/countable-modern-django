@@ -1,18 +1,18 @@
 version: '3.3'
 
 services:
+  db:
+    environment:
+      - POSTGRES_PASSWORD=password
   frontend:
     command: bash -c "yarn && yarn serve"
     ports:
       - 8080:8080
-  db:
-    environment:
-      - POSTGRES_PASSWORD=password
   nginx:
     ports:
       - 80:80
     volumes:
-     - ./nginx/conf.d:/etc/nginx/conf.d
+     - ./nginx/dev/:/etc/nginx/conf.d
      - static:/static
   web:
     environment:

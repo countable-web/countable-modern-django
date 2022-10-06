@@ -2,20 +2,12 @@
 version: '3.3'
 
 services:
-  web:
-    build: ./web
-    volumes:
-      - ./web:/code
-      - static:/static
-    networks:
-      - back-tier
   db:
     image: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
     networks:
       - back-tier
-
   frontend:
     image: node
     volumes:
@@ -24,7 +16,6 @@ services:
       - back-tier
     working_dir: /code/
     command: ./command.sh
-
   nginx:
     networks:
       - back-tier
@@ -32,8 +23,15 @@ services:
       - 80:80
     image: nginx
     volumes:
-     - ./nginx/conf.d:/etc/nginx/conf.d
+     - ./nginx/dev:/etc/nginx/conf.d
      - static:/static
+  web:
+    build: ./web
+    volumes:
+      - ./web:/code
+      - static:/static
+    networks:
+      - back-tier
 
 volumes:
   pg-data:

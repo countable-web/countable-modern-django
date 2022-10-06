@@ -1,15 +1,22 @@
 version: '3.3'
 
 services:
-  nginx:
-    ports:
-      - 80:80
-    restart: always
   db:
     restart: always
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  web:
-    restart: always
   frontend:
     restart: always
+    command: bash -c "yarn && yarn serve"
+  nginx:
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+     - ./nginx/dev:/etc/nginx/conf.d
+     - static:/static
+  web:
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DJANGO_SECRET=${DJANGO_SECRET}
